@@ -1,7 +1,8 @@
 using System;
 public class Solution {
     public long solution(long n) {
-        long answer = 0;
+        long answer;
+        
         // n을 곧장 char형태로 변환해서 새로운 char 배열에 저장함
         char[] temp = n.ToString().ToCharArray();
         
