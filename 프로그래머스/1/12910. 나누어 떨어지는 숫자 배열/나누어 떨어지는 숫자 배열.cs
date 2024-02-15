@@ -18,15 +18,13 @@ public class Solution {
                 count++;
             }
 
-        for(int i = 0; i < length; i++){
-            for(int j = i + 1; j < length; j++){
+        for(int i = 0; i < length; i++)
+            for(int j = i + 1; j < length; j++)
                 if(answer[i] > answer[j]){
                     int temp = answer[j];
                     answer[j] = answer[i];
                     answer[i] = temp;
                 }
-            }
-        }
         
         return answer;
     }
