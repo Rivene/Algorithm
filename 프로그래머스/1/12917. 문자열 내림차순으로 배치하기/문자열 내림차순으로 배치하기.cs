@@ -6,7 +6,7 @@ public class Solution {
         for(int i = 0; i < s.Length; i++)
             charArray[i] = s[i];
         
-        for(int i = 0; i < s.Length-1; i++)
+        for(int i = 1; i < s.Length; i++)
             for(int j = 0; j < s.Length - 1; j++)
                 if((int)charArray[j] < (int)charArray[j+1]){
                     char temp = charArray[j];
