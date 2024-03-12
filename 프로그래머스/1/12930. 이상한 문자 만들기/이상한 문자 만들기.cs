@@ -20,7 +20,7 @@ public class Solution {
                 }
             }
             if(i + 1 != str.Length)
-                answer += " ";
+                answer += (char)32;
         }
         
         return answer;
