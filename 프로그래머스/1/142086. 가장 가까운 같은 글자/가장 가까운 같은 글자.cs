@@ -4,7 +4,6 @@ public class Solution {
     public int[] solution(string s) {
         int[] answer = new int[s.Length];
         
-        int a;
         answer[0] = -1;
         
         for(int i = 1; i < s.Length; i++){
@@ -12,6 +11,7 @@ public class Solution {
                 if(s[i] == s[j])
                     answer[i] = i - j;
             }
+            
             if(answer[i] == 0)
                 answer[i] = -1;
         }
