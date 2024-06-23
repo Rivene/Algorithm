@@ -10,7 +10,7 @@ public class Solution {
         int correct2 = 0;
         int correct3 = 0;
         
-        // 1번 수포자
+        // 1번 수포자 답안 비교
         for(int i = 0; i < answers.Length; i++){
             if((i + 1) % 5 == 0){
                 if(answers[i] == 5)
@@ -20,7 +20,7 @@ public class Solution {
                 correct1++;
         }
         
-        // 2번 수포자
+        // 2번 수포자 답안 비교
         for(int i = 0; i < answers.Length; i++){
             if(i % 2 == 0)
                 answers2[i] = 2;
@@ -36,7 +36,7 @@ public class Solution {
                 correct2++;
         }
         
-        // 3번 수포자
+        // 3번 수포자 답안 비교
         for(int i = 0; i < answers.Length; i++){
             if(i % 10 == 0 || i % 10 == 1)
                 answers3[i] = 3;
@@ -52,6 +52,7 @@ public class Solution {
                 correct3++;
         }
         
+        // 정답 개수 비교 후 정렬
         int maxIndex = 0;
         int[, ] answer = new int[3, 2]{{1, correct1}, {2, correct2}, {3, correct3}};
         for(int i = 0; i < 3; i++){
@@ -66,6 +67,8 @@ public class Solution {
                 answer[maxIndex, k] = temp;
             }
         }
+        
+        // 동점 존재 시 동점인 수포자 모두 저장
         int[] sortAnswer;
         if(answer[0, 1] == answer[1, 1]){
             if(answer[1, 1] == answer[2, 1])
@@ -76,6 +79,7 @@ public class Solution {
         else
             sortAnswer = new int[1]{answer[0, 0]};
         
+        // 수포자 반환
         return sortAnswer;
     }
 }
