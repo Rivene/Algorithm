@@ -2,26 +2,23 @@ using System;
 
 public class Solution {
     public int solution(int number, int limit, int power) {
-        // 1부터 number까지, 기사번호의 약수 개수에 해당하는 공격력을 가진 무기 구매, 공격력 제한
-        // 공격력 제한을 넘는 기사는 고정 공격력 무기 구매, 무기 공격력당 1kg 철 필요
-        // 기사단원의 수 : number, 공격력 제한 : limit, 제한초과 시 고정 공격력 : power
-        // 무기를 전부 만들기 위해 필요한 철의 무게 리턴
         int answer = 0;
-        int[] cnt = new int[number + 1];
-        for(int i = 1; i <= number; i++)
-        {
-            for(int j = i; j <= number; j += i)
-            {
-                cnt[j]++;
-            }
-        }
+        int count;
         
-        for(int i = 1; i <= number; i++)
-        {
-            if(cnt[i] > limit)
+        for(int i = 1; i <= number; i++){
+            count = 0;
+            for(int num = 1; num * num <= i; num++){
+                if(i % num == 0){
+                    if(i / num == num)
+                        count++;
+                    else
+                        count += 2;
+                }
+            }
+            if(count > limit)
                 answer += power;
             else
-                answer += cnt[i];
+                answer += count;
         }
         
         return answer;
